@@ -67,20 +67,31 @@ function processCommands(commands) {
   const output = [];
 
   for (const command of commands) {
-      const [action, ...args] = command.split(' ');
-      let result;
-      if (action === 'CREATE') {
-          result = createDirectory(root, args[0]);
-      } else if (action === 'MOVE') {
-          result = moveDirectory(root, args[0], args[1]);
-      } else if (action === 'DELETE') {
-          result = deleteDirectory(root, args[0]);
-      } else if (action === 'LIST') {
-          result = listDirectories(root);
-      }
-      console.log("result:",result)
-      if(result) output.push(result.trim());
-  }
+    const [action, ...args] = command.split(' ');
+    let result;
+
+    switch (action) {
+        case 'CREATE':
+            result = createDirectory(root, args[0]);
+            break;
+        case 'MOVE':
+            result = moveDirectory(root, args[0], args[1]);
+            break;
+        case 'DELETE':
+            result = deleteDirectory(root, args[0]);
+            break;
+        case 'LIST':
+            result = listDirectories(root);
+            break;
+        default:
+            console.log(`Invalid action: ${action}`);
+            break;
+    }
+
+    console.log("result:", result);
+    if (result) output.push(result.trim());
+}
+
 
   return output;
 }

@@ -1,3 +1,5 @@
-# Sefara test - How to run it 
+# Sefara test - How to run the script
 
-Bit Commerce is a Bitcoin/Lightning applications for Seller to sell their Product and get Paid in Bitcoin.
+- clone the repo -> https://github.com/mubarak23/sefara-test.git
+- cd into the repo -> cd sefara-test
+- run the script with ->  node indexjs
